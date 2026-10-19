@@ -4,7 +4,7 @@
 ### AnyKernel setup
 # global properties
 properties() { '
-kernel.string=ReSukiSU community kernel builds by coolzyd9107 aka zhuzhuzihan aka huangdihd
+kernel.string=BakaSU community kernel builds by coolzyd9107 aka zhuzhuzihan aka huangdihd
 do.devicecheck=0
 do.modules=0
 do.systemless=0
@@ -37,6 +37,8 @@ case $kernel_version in
     5.1*) ksu_supported=true ;;
     6.1*) ksu_supported=true ;;
     6.6*) ksu_supported=true ;;
+    6.12*) ksu_supported=true ;;
+    6.18*) ksu_supported=true ;;
     *) ksu_supported=false ;;
 esac
 
@@ -44,6 +46,9 @@ ui_print " " "  -> GKI Kernel Supported: $ksu_supported"
 $ksu_supported || abort "  -> Non-GKI device, abort."
 
 # boot install
+ui_print "Backing up stock boot image to /sdcard/Download/stock_boot.img"
+backup_boot
+
 split_boot
 if [ -f "split_img/ramdisk.cpio" ]; then
     unpack_ramdisk
@@ -54,10 +59,10 @@ fi
 
 ui_print " "
 ui_print "Our Telegram Channel:"
-ui_print "https://t.me/ReSukiSUKernelBuilds"
+ui_print "https://t.me/BakaSUKernelBuilds"
 ui_print " "
 ui_print "GKI_KernelSU_SUSFS GitHub Repository:"
-ui_print "https://github.com/coolzyd9107/GKI_KernelSU_SUSFS"
+ui_print "https://github.com/coolzyd9107/GKI_BakaSU_SUSFS"
 ui_print "GKI kernels with KernelSU and SUSFS."
 ui_print " "
 ui_print "OnePlus_KernelSU_SUSFS GitHub Repository:"
