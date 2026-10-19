@@ -46,9 +46,6 @@ ui_print " " "  -> GKI Kernel Supported: $ksu_supported"
 $ksu_supported || abort "  -> Non-GKI device, abort."
 
 # boot install
-ui_print "Backing up stock boot image to /sdcard/Download/stock_boot.img"
-backup_boot
-
 split_boot
 if [ -f "split_img/ramdisk.cpio" ]; then
     unpack_ramdisk
